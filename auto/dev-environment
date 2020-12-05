@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+trap "docker-compose down --volumes" 0
+
+APP=slackbot
+
+docker-compose build "${APP}"
+docker-compose run --rm --service-ports "${APP}" "${@-bash}"

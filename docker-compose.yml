@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  slackBot:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    volumes:
+      - .:/app
+    working_dir: /app
+    restart: always
+    environment:
+      SLACK_TOKEN:
+      GITHUB_TOKEN:
+      CHANNEL_ID:
+      CHANNEL_NAME:
+      BOT_NAME: slackBot
+      BOT_USER_ID:
+      BOT_OWNER_USERNAME:
+      BOT_OWNER_USER_ID:
+      AWS_DEFAULT_REGION: ap-southeast-2
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      AWS_SECURITY_TOKEN:
+      AWS_SESSION_TOKEN:
+      GITHUB_URL:
